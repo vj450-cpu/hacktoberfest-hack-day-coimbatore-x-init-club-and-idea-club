@@ -1,6 +1,6 @@
 # COSMICWATCH
 
-> Open-source AI astronomical anomaly detection and candidate-prioritization system for radio SETI and Breakthrough Listen observations.
+> Open-source AI astronomical anomaly detection and candidate-prioritization system for radio SETI and Breakthrough Listen observation.
 
 ## Team
 
