@@ -8,7 +8,10 @@
 
 | Member | Contribution |
 | ------ | ------------ |
-| Vijay (vj450-cpu) | Lead AI Engineer & Full-Stack Architect: Ingestion pipeline, dual-layer AI, candidate engine, FastAPI & React observatory dashboard |
+| Vijayaragunathan.R (vj450-cpu) | Team Lead & Full-Stack Architect: System architecture, dual-layer AI pipeline, candidate scoring engine, and FastAPI REST services |
+| Kavin.K | ML & Data Engineer: Breakthrough Listen ingestion pipeline (`BLIMPY`), dynamic dB/percentile normalization, and synthetic radio signal generator |
+| Vendra punith sai | AI & Evaluation Engineer: Isolation Forest anomaly detector, spectral kurtosis/entropy feature extraction, model benchmarking, and empirical metrics |
+| Kavin.M | Frontend Architect & UI Engineer: React + Tailwind Observatory Mission Control dashboard, canvas spectrogram waterfall viewer, and ON/OFF cadence inspector |
 
 ---
 
@@ -152,7 +155,10 @@ During the Hack Day, the team implemented and verified:
 
 ### Team Contributions
 
-- **Vijay (vj450-cpu):** End-to-end system design, BLIMPY data ingestion, ResNet classifier, Isolation Forest anomaly detector, candidate scoring engine, Gemma explanation layer, FastAPI routes, and React mission control UI.
+- **Vijayaragunathan.R (vj450-cpu):** End-to-end system design, PyTorch ResNet vision classifier, multi-criteria Candidate Prioritization Engine, Gemma-aligned explanation service, and FastAPI backend integration.
+- **Kavin.K:** Public astronomical data ingestion via `BLIMPY`, robust percentile baseline preprocessing, and reproducible synthetic signal generator covering 6 radio signal morphologies.
+- **Vendra punith sai:** Unsupervised Isolation Forest anomaly detection, physical feature extractor (kurtosis, spectral entropy, PAPR, persistence), test suite development, and empirical model benchmark evaluation.
+- **Kavin.M:** Observatory Mission Control frontend development with React & Tailwind CSS v4, interactive HTML5 canvas spectrogram waterfall with colormaps, ON/OFF cadence inspector, and live pipeline stage orchestrator.
 
 ---
 
