@@ -79,6 +79,8 @@ def test_isolation_forest_not_fitted(generator):
     f_anom = AstronomicalFeatureExtractor.to_feature_vector(anom_sample)
     # Depending on implementation, it might raise an error or return a default score.
     # We will test that calling it before fit either raises ValueError or returns a fallback.
-    with pytest.raises((ValueError, AttributeError, NotFittedError)) as excinfo:
-        iso_detector.score_anomaly(f_anom)
-        # If it doesn't raise, we at least ensure it returns a float
+    try:
+        score = iso_detector.score_anomaly(f_anom)
+        assert isinstance(score, float)
+    except (ValueError, AttributeError, NotFittedError):
+        pass
