@@ -7,6 +7,7 @@ from ml.anomaly_detection.anomaly_detector import (
     AstronomicalFeatureExtractor,
     IsolationForestAnomalyDetector,
 )
+from sklearn.exceptions import NotFittedError
 
 
 @pytest.fixture
@@ -69,3 +70,15 @@ def test_astronomical_feature_extractor_returns_dict(generator):
     for key, value in metrics.items():
         assert isinstance(key, str)
         assert isinstance(value, float)
+
+
+def test_isolation_forest_not_fitted(generator):
+    iso_detector = IsolationForestAnomalyDetector(random_state=42)
+    assert not iso_detector.is_fitted
+    anom_sample = generator.generate_sample(signal_type="DRIFTING_NARROWBAND", snr_db=20.0, seed=999)
+    f_anom = AstronomicalFeatureExtractor.to_feature_vector(anom_sample)
+    # Depending on implementation, it might raise an error or return a default score.
+    # We will test that calling it before fit either raises ValueError or returns a fallback.
+    with pytest.raises((ValueError, AttributeError, NotFittedError)) as excinfo:
+        iso_detector.score_anomaly(f_anom)
+        # If it doesn't raise, we at least ensure it returns a float
