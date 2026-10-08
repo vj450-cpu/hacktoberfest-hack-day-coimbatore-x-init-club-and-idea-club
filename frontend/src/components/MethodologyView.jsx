@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { ShieldAlert, BookOpen, Target, Radio, CheckCircle2, AlertOctagon, Compass, Cpu, Sparkles, Binary, Waves, HelpCircle } from 'lucide-react';
+=======
+import React from 'react';
+import { ShieldAlert, BookOpen, Target, Radio, CheckCircle2, AlertOctagon, Sliders, Database } from 'lucide-react';
+>>>>>>> e47e8533c5f51a192771622b82d69db68fb26b4d
 
 export default function MethodologyView() {
   const [activeSection, setActiveSection] = useState('physics');
@@ -98,6 +103,7 @@ export default function MethodologyView() {
         </p>
       </div>
 
+<<<<<<< HEAD
       {/* SECTION 1: RADIO PHYSICS & CADENCE */}
       {activeSection === 'physics' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -227,6 +233,47 @@ export default function MethodologyView() {
   }
 }`}
               </pre>
+=======
+      {/* Distinction Matrix */}
+      <div className="p-4 rounded-xl bg-space-900 border border-space-800 text-xs font-mono">
+        <div className="flex items-center space-x-2 text-obs-cyan font-bold mb-3">
+          <Database className="h-4 w-4" />
+          <span>SCIENTIFIC TAXONOMY & CLASSIFICATION PRINCIPLES</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-[11px]">
+          <div className="p-2.5 rounded-lg bg-space-950 border border-space-850">
+            <span className="text-obs-cyan font-bold block mb-1">1. REAL OBSERVATIONS</span>
+            <p className="text-slate-400">Authentic Breakthrough Listen radio data (.fil/.h5) from Green Bank Telescope, Parkes, and MeerKAT.</p>
+          </div>
+          <div className="p-2.5 rounded-lg bg-space-950 border border-space-850">
+            <span className="text-amber-400 font-bold block mb-1">2. SYNTHETIC BENCHMARKS</span>
+            <p className="text-slate-400">Controlled artificial signal injections used for reproducible unit testing and model evaluation (clearly marked as synthetic).</p>
+          </div>
+          <div className="p-2.5 rounded-lg bg-space-950 border border-space-850">
+            <span className="text-obs-indigo font-bold block mb-1">3. MODEL PREDICTIONS</span>
+            <p className="text-slate-400">Probabilistic neural classifications and Isolation Forest statistical density scores.</p>
+          </div>
+          <div className="p-2.5 rounded-lg bg-space-950 border border-space-850">
+            <span className="text-purple-400 font-bold block mb-1">4. PROTOTYPE HEURISTICS</span>
+            <p className="text-slate-400">Configurable triage multipliers (e.g. 40% RFI penalty factor) designed for prototype triage demonstration, not physical constants.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* The 4-Tier Verification Hierarchy */}
+        <div className="observatory-panel rounded-xl p-5 border border-space-700">
+          <h3 className="text-sm font-bold font-mono text-white mb-3 flex items-center space-x-2">
+            <Radio className="h-4 w-4 text-obs-cyan" />
+            <span>TRIAGE CLASSIFICATION TIERS</span>
+          </h3>
+          <div className="space-y-2.5 text-xs font-mono">
+            <div className="p-2.5 rounded-lg bg-rose-500/10 border border-rose-500/30">
+              <span className="font-bold text-rose-400 block">HIGH PRIORITY FOR REVIEW (Score ≥ 80)</span>
+              <p className="text-[11px] text-slate-300 mt-0.5">
+                Narrowband or drifting signal detected in target ON-pointing and absent in OFF-calibrator pointing. Candidate requires further observation; does not establish extraterrestrial origin.
+              </p>
+>>>>>>> e47e8533c5f51a192771622b82d69db68fb26b4d
             </div>
 
             <div className="p-4 rounded-lg bg-space-950 border border-space-800 flex flex-col justify-between">

@@ -35,8 +35,10 @@ def run_evaluation(
 ):
     """
     Executes real empirical evaluation on held-out test data.
+    Ensures 100% deterministic reproducibility using explicit seed.
     """
     os.makedirs(results_dir, exist_ok=True)
+    rng = np.random.default_rng(seed)
     gen = SyntheticSignalGenerator(seed=seed)
 
     print("=== CosmicWatch Scientific Evaluation ===")
@@ -54,7 +56,7 @@ def run_evaluation(
     signal_types = ["DRIFTING_NARROWBAND", "NARROWBAND", "INTERMITTENT", "BROADBAND_BURST"]
     for i in range(n_half):
         stype = signal_types[i % len(signal_types)]
-        snr = float(np.random.uniform(9.0, 22.0))
+        snr = float(rng.uniform(9.0, 22.0))
         w = gen.generate_sample(signal_type=stype, snr_db=snr, seed=seed + 5000 + i)
         test_data.append((w, 1, stype))
 

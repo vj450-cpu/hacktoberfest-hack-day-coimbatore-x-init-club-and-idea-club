@@ -8,7 +8,10 @@
 
 | Member | Contribution |
 | ------ | ------------ |
-| Vijay (vj450-cpu) | Lead AI Engineer & Full-Stack Architect: Ingestion pipeline, dual-layer AI, candidate engine, FastAPI & React observatory dashboard |
+| Vijayaragunathan.R (vj450-cpu) | Team Lead & Full-Stack Architect: System architecture, dual-layer AI pipeline, candidate scoring engine, and FastAPI REST services |
+| Kavin.K | ML & Data Engineer: Breakthrough Listen ingestion pipeline (`BLIMPY`), dynamic dB/percentile normalization, and synthetic radio signal generator |
+| Vendra punith sai | AI & Evaluation Engineer: Isolation Forest anomaly detector, spectral kurtosis/entropy feature extraction, model benchmarking, and empirical metrics |
+| Kavin.M | Frontend Architect & UI Engineer: React + Tailwind Observatory Mission Control dashboard, canvas spectrogram waterfall viewer, and ON/OFF cadence inspector |
 
 ---
 
@@ -16,6 +19,17 @@
 > **CosmicWatch is NOT an "alien detector".** Never claim that the system detects extraterrestrial life.
 > The system detects unusual statistical anomalies/candidate signals and recommends candidates for human radio telescope investigation. 
 > All performance metrics originate from actual held-out empirical experiments ($N=200$, seed: `7777`). We do not invent accuracy, astronomical objects, or false extraterrestrial claims.
+
+---
+
+## Scientific Taxonomy & Distinctions
+
+To ensure scientific honesty and rigor, CosmicWatch explicitly separates:
+1. **Observed Astronomical Data:** Authentic radio observations from public Breakthrough Listen archives (`.fil` and `.h5` files) ingested via `BLIMPY`.
+2. **Synthetic Demonstration Data:** Controlled artificial signal injections (narrowband, Doppler drift, intermittent carriers, bursts, and Gaussian receiver noise) generated reproducibly via `SyntheticSignalGenerator` for benchmarking and offline hackathon testing.
+3. **Model Predictions:** Probabilistic outputs from the `LightweightSpectrogramResNet` vision classifier and unsupervised density scores from the `IsolationForest` anomaly detector.
+4. **Heuristic Triage Scoring:** The 0–100 candidate score and the **40% RFI penalty factor** are **configurable prototype triage heuristics** defined in `ml/config/scoring_weights.yaml` for software demonstration, rather than universal physical constants.
+5. **Scientific Conclusions:** Candidate classifications indicate spatial/spectral interest warranting telescope re-observation. They **never** establish or claim extraterrestrial origin.
 
 ---
 
@@ -38,7 +52,7 @@ CosmicWatch provides an open-source, reproducible end-to-end AI candidate triage
 3. **Dual-Layer Machine Learning**:
    - **Path A (Deep Vision Classifier)**: `LightweightSpectrogramResNet` classifying candidate windows (`NORMAL` vs `SIGNAL_CANDIDATE`) and extracting 64-dimensional latent embeddings.
    - **Path B (Domain Anomaly Detector)**: Isolation Forest operating on combined latent embeddings and astronomical physical statistics (Spectral Kurtosis, Spectral Entropy, PAPR, Persistence).
-4. **ON/OFF Spatial Cadence Verification**: Cross-observation check between on-target pointing and off-target calibrator pointing. Signals appearing across both beams are identified as local RFI and demoted.
+4. **ON/OFF Spatial Cadence Verification**: Cross-observation check between on-target pointing (ON) and off-target calibrator pointing (OFF). Directional signals absent in OFF pointings receive elevated triage priority for human review, while signals appearing across both beams are demoted as non-directional RFI.
 5. **Configurable Prioritization Engine**: Produces a unified 0–100 candidate score using documented, adjustable weights in YAML.
 6. **Open-Weight LLM Explanations**: Gemma-2 / Qwen open-weight model integration translating structured measurements into cautious, natural-language scientific rationales for telescope operators.
 7. **Observatory Mission Control Dashboard**: Full-stack React + Tailwind UI with live UTC/MJD telemetry, interactive spectrogram heatmap with colormap choices, ON/OFF cadence inspector, and live pipeline simulator.
@@ -50,8 +64,8 @@ CosmicWatch provides an open-source, reproducible end-to-end AI candidate triage
 - **3D Holographic Spectrogram Topography**: Interactive 3D waterfall elevation visualizer rendering frequency intensity as interactive terrain meshes with live signal archetype presets.
 - **Breakthrough Listen & BLIMPY Integration**: Native parser for official `.fil` and `.h5` filterbank files.
 - **Dual-Path AI Anomaly Triage**: Combines computer vision feature representation with statistical density estimation.
-- **ON/OFF Spatial Cadence Check**: Automated rejection of terrestrial RFI by cross-referencing off-source observations.
-- **Configurable Multi-Criteria Scoring (0–100)**: Transparent, non-arbitrary weights defined in `ml/config/scoring_weights.yaml`.
+- **ON/OFF Spatial Cadence Check**: Automated demotion of multi-beam RFI by cross-referencing off-source observations.
+- **Configurable Multi-Criteria Scoring (0–100)**: Transparent weights and prototype heuristic penalties defined in `ml/config/scoring_weights.yaml`.
 - **Explainable AI with Open-Weight Models**: Gemma 2-aligned scientific reasoning engine explaining *why* a candidate warrants follow-up.
 - **Observatory Mission Control UI**: Real-time telemetry, canvas waterfall viewer with frequency and time axes, and live pipeline stage runner.
 - **Air-Gapped / Offline Demo Mode**: Zero-network capability with reproducible synthetic signal injection (Doppler drift, intermittent carriers, bursts, noise).
@@ -113,16 +127,17 @@ flowchart TD
 2. **Preprocessing**: The 2D matrix undergoes baseline median subtraction and percentile normalization ($p_{1\%} - p_{99\%}$).
 3. **Signal Classification**: The CNN estimates `signal_confidence` ($0.0 - 1.0$) and generates a 64-dim latent embedding.
 4. **Anomaly Scoring**: `AstronomicalFeatureExtractor` extracts spectral kurtosis, entropy, and PAPR. The `IsolationForestAnomalyDetector` outputs an `anomaly_score` ($0.0 - 1.0$).
-5. **Cadence Verification**: The candidate is checked against an off-target observation. If present in both, it is flagged as `POSSIBLE RFI` and penalized.
+5. **Cadence Verification**: The candidate is checked against an off-target observation. If present in both, it is flagged as `POSSIBLE RFI` and demoted.
 6. **Candidate Scoring**: `CandidateEngine` applies the documented weights from `ml/config/scoring_weights.yaml` to compute a final priority score ($0 - 100$).
 7. **Scientific Explanation**: The structured numerical measurements are passed to the Gemma reasoning service, which synthesizes a cautious, scientific explanation.
 8. **Dashboard Visualization**: Results stream to the FastAPI backend and render in the React Mission Control dashboard.
 
-### Technical Decisions
+### Technical Decisions & Heuristic Clarifications
 - **PyTorch Lightweight Spectrogram ResNet**: Custom 2-block residual architecture optimized for CPU inference ($<5\text{ ms}$ latency), eliminating the need for expensive GPU clusters during triage.
-- **Isolation Forest on Combined Latent + Domain Features**: Ensures anomalies are evaluated against nominal thermal receiver noise without assuming an arbitrary parametric distribution.
+- **Isolation Forest on Combined Latent + Domain Features**: Ensures anomalies are evaluated against nominal thermal receiver noise without assuming an arbitrary parametric distribution..
 - **Separation of LLM from Direct Vision**: Rather than allowing an LLM to hallucinate on raw pixels, the LLM consumes structured, deterministic measurements from the ML pipeline.
-- **YAML Weight Configuration**: Avoids arbitrary hardcoded scoring logic, allowing observatory operators to adapt scoring weights to different telescope bands.
+- **40% RFI Penalty Factor**: The $0.40$ RFI penalty factor is a **configurable prototype triage heuristic** designed to down-rank multi-beam signals in software triage. It is not an unalterable astronomical constant and should be calibrated per observatory receiver band.
+- **YAML Weight Configuration**: Avoids arbitrary hardcoded scoring logic, allowing observatory operators to adapt scoring weights to different telescope bands in `ml/config/scoring_weights.yaml`.
 
 ---
 
@@ -144,7 +159,10 @@ During the Hack Day, the team implemented and verified:
 
 ### Team Contributions
 
-- **Vijay (vj450-cpu):** End-to-end system design, BLIMPY data ingestion, ResNet classifier, Isolation Forest anomaly detector, candidate scoring engine, Gemma explanation layer, FastAPI routes, and React mission control UI.
+- **Vijayaragunathan.R (vj450-cpu):** End-to-end system design, PyTorch ResNet vision classifier, multi-criteria Candidate Prioritization Engine, Gemma-aligned explanation service, and FastAPI backend integration.
+- **Kavin.K:** Public astronomical data ingestion via `BLIMPY`, robust percentile baseline preprocessing, and reproducible synthetic signal generator covering 6 radio signal morphologies.
+- **Vendra punith sai:** Unsupervised Isolation Forest anomaly detection, physical feature extractor (kurtosis, spectral entropy, PAPR, persistence), test suite development, and empirical model benchmark evaluation.
+- **Kavin.M:** Observatory Mission Control frontend development with React & Tailwind CSS v4, interactive HTML5 canvas spectrogram waterfall with colormaps, ON/OFF cadence inspector, and live pipeline stage orchestrator.
 
 ---
 
@@ -177,32 +195,32 @@ During the Hack Day, the team implemented and verified:
 - **IsolationForest:** Scikit-learn unsupervised density estimator scoring deviation from nominal thermal receiver noise.
 - **Gemma 2 / Qwen 2.5:** Open-weight foundation models integrated via Ollama/HF for natural-language scientific explanation of structured measurements.
 
-### Open Source Components
-- **BLIMPY (2.1.4):** Breakthrough Listen I/O library for reading Filterbank and HDF5 radio data ([UC Berkeley SETI](https://github.com/UCBerkeleySETI/blimpy)).
-- **FastAPI (0.110+):** Modern, high-performance Python web API framework.
-- **PyTorch (2.14+):** Deep learning framework for spectrogram vision models.
-- **Scikit-Learn (1.9+):** Statistical ML algorithms for Isolation Forest and metrics.
-- **React (18) + Vite (8):** Frontend framework and build tooling.
-- **Tailwind CSS (v4):** Styling and mission control observatory theme.
+### Open Source Components & Licenses
+- **BLIMPY (2.1.4):** Breakthrough Listen I/O library for reading Filterbank and HDF5 radio data ([UC Berkeley SETI](https://github.com/UCBerkeleySETI/blimpy)) — *BSD-3-Clause License*.
+- **FastAPI (0.110+):** Modern, high-performance Python web API framework — *MIT License*.
+- **PyTorch (2.14+):** Deep learning framework for spectrogram vision models — *Modified BSD License*.
+- **Scikit-Learn (1.9+):** Statistical ML algorithms for Isolation Forest and metrics — *BSD-3-Clause License*.
+- **React (18) + Vite (8):** Frontend framework and build tooling — *MIT License*.
+- **Tailwind CSS (v4):** Styling and mission control observatory theme — *MIT License*.
 
 ---
 
 ## Empirical Model Evaluation
 
-All performance metrics are generated from actual empirical testing on held-out test data ($N=200$, random seed: `7777`):
+All performance metrics are generated from actual empirical testing on held-out synthetic benchmark test data ($N=200$, random seed: `7777`, executed via `python -m ml.evaluation.evaluate`):
 
 | Metric | Score | Description |
 |---|---|---|
-| **Classification Accuracy** | **87.5%** | Correctly categorized on held-out test windows |
-| **Precision (Candidates)** | **100.0%** | Zero false alarms on baseline receiver thermal noise |
-| **Recall (Sensitivity)** | **75.0%** | Detects faint narrowband carriers and transient bursts |
+| **Classification Accuracy** | **87.5%** | Correctly categorized on held-out test windows ($175/200$) |
+| **Precision (Candidates)** | **100.0%** | Zero false alarms on nominal receiver background noise ($75/75$) |
+| **Recall (Sensitivity)** | **75.0%** | Detects faint narrowband carriers and transient bursts ($75/100$) |
 | **F1 Score** | **85.7%** | Harmonic mean of precision and recall |
 | **Anomaly Separation Margin** | **+0.424** | Mean anomaly score: Normal ($0.301$) vs Signal ($0.725$) |
 
 ### Confusion Matrix ($N=200$):
 ```
                   Predicted: NORMAL    Predicted: CANDIDATE
-True: NORMAL             100                    0    (Zero False Positives)
+True: NORMAL             100                    0    (Zero False Positives on test noise)
 True: CANDIDATE           25                   75
 ```
 *Artifacts and evaluation plots saved in `ml/evaluation/results/`.*

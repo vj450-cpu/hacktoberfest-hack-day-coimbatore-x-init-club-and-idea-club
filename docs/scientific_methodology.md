@@ -11,7 +11,7 @@ It surfaces anomalous spectral features and ranks them based on physical and obs
 ## 2. Strict Scientific Disclaimer & Guardrails
 
 > **WHAT COSMICWATCH DOES:**
-> Identifies non-Gaussian spectral events, coherent carriers, Doppler-drifting frequencies, and anomalies relative to nominal receiver noise.
+> Identifies non-Gaussian spectral events, coherent carriers, Doppler-drifting frequencies, and statistical anomalies relative to nominal receiver noise.
 
 > **WHAT COSMICWATCH DOES NOT DO:**
 > - CosmicWatch is **NOT** an "alien detector".
@@ -20,9 +20,10 @@ It surfaces anomalous spectral features and ranks them based on physical and obs
 
 Every candidate analysis strictly distinguishes between:
 1. **OBSERVED DATA**: Physical frequency, time stamps, telescope source files.
-2. **MODEL OUTPUT**: Classifier confidence, anomaly score, spectral entropy.
-3. **INFERENCE**: Likelihood of terrestrial RFI vs astrophysical/technosignature candidate.
-4. **RECOMMENDATION**: Priority level for human follow-up observation on radio telescopes.
+2. **SYNTHETIC DATA**: Controlled artificial signals injected for unit testing and model benchmarking (clearly marked with `is_synthetic: true`).
+3. **MODEL PREDICTIONS**: Statistical outputs from neural classifiers and Isolation Forest estimators.
+4. **HEURISTIC SCORING**: Prototype prioritization weights and penalty factors configured by observatory operators.
+5. **SCIENTIFIC CONCLUSIONS**: Only telescope follow-up by human astronomers can establish the true physical origin of a candidate.
 
 ---
 
@@ -34,9 +35,9 @@ A cornerstone of radio SETI is target cadencing (e.g. ABACAD pointings):
 ### Interpretation Matrix:
 | Target (ON) | Calibrator (OFF) | Interpretation | Priority |
 |---|---|---|---|
-| Signal Detected | Signal Absent | Candidate localized to target coordinate frame | **HIGH PRIORITY FOR REVIEW** |
-| Signal Detected | Signal Detected | Local terrestrial RFI (cell towers, GPS, satellites) | **POSSIBLE RFI (Low Priority)** |
-| Signal Absent | Signal Absent | Nominal thermal receiver noise | **LIKELY NORMAL** |
+| Signal Present | Signal Absent | Consistent with directional sky localization; requires follow-up observation to rule out transient RFI. Does NOT prove extraterrestrial origin. | **HIGH PRIORITY FOR REVIEW** |
+| Signal Present | Signal Present | Non-directional; consistent with local terrestrial RFI (cell towers, GPS, satellites entering antenna sidelobes). | **POSSIBLE RFI (Low Priority)** |
+| Signal Absent | Signal Absent | Nominal thermal receiver noise baseline. | **LIKELY NORMAL** |
 
 ---
 
@@ -46,3 +47,9 @@ A cornerstone of radio SETI is target cadencing (e.g. ABACAD pointings):
 - **Intermittent**: Pulsed transmission with a duty cycle across integrations.
 - **Broadband Burst**: Fast dispersion or wide-channel burst similar to Fast Radio Bursts (FRBs) or high-voltage sparks.
 - **Thermal Receiver Noise**: Nominal Gaussian background with receiver bandpass baseline ripple.
+
+---
+
+## 5. Prototype Heuristics & Configurable Penalties
+- **RFI Penalty Factor (40%)**: The candidate engine applies a configurable $40\%$ penalty ($0.40 \times \text{RFI Likelihood}$) to candidate priority scores. This is a **prototype triage heuristic** to suppress known multi-beam interference in demonstration pipelines, not a physically derived or universal astronomical constant. Different observing frequencies (L-band, S-band, C-band) require customized empirical calibration based on local observatory RFI environments.
+- **Weights Configuration**: Weights for signal confidence (25%), anomaly score (25%), persistence (15%), narrowband likelihood (15%), and ON/OFF consistency (20%) are fully externalized in `ml/config/scoring_weights.yaml` for transparent customization.

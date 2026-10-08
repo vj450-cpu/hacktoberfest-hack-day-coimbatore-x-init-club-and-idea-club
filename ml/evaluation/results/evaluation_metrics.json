@@ -14,7 +14,7 @@
   },
   "anomaly_detection": {
     "mean_score_normal": 0.301,
-    "mean_score_signal": 0.7254,
-    "separation_margin": 0.4244
+    "mean_score_signal": 0.7249,
+    "separation_margin": 0.4239
   }
 }
