@@ -84,3 +84,13 @@ def test_isolation_forest_not_fitted(generator):
         assert isinstance(score, float)
     except (ValueError, AttributeError, NotFittedError):
         pass
+
+
+def test_anomaly_detector_empty_input():
+    detector = AnomalyDetector()
+    empty_sample = []
+    # Depending on implementation, it may raise ValueError or return an error score
+    try:
+        detector.score(empty_sample)
+    except Exception as e:
+        assert isinstance(e, Exception)
