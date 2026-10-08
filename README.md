@@ -43,8 +43,11 @@ CosmicWatch provides an open-source, reproducible end-to-end AI candidate triage
 6. **Open-Weight LLM Explanations**: Gemma-2 / Qwen open-weight model integration translating structured measurements into cautious, natural-language scientific rationales for telescope operators.
 7. **Observatory Mission Control Dashboard**: Full-stack React + Tailwind UI with live UTC/MJD telemetry, interactive spectrogram heatmap with colormap choices, ON/OFF cadence inspector, and live pipeline simulator.
 
-### Key Features
-
+- **3D Celestial Observatory Landing Page**: Real-time 3D starfield canvas, interactive rotating wireframe telescope dish, constellation tracking, and astrometric coordinate lock.
+- **Dynamic 3D Parallax Background**: Full-screen atmospheric backdrop layer powered by the observatory artwork suite (`pk`) with subtle mouse parallax, smooth 12-second crossfade transitions, and interactive scene switcher (Mountaintop, Dome, Constellations, Summit, Discovery).
+- **Cinematic Observatory Video Player**: Multi-stream video console with HUD telemetry, real-time frequency tuner, video speed control, custom video feed loading, and zero-dependency Web Audio space ambient synthesizer.
+- **3D Interactive Storybook & Observatory Chronicles**: Real-time 3D perspective mouse-tilt cards showcasing the observatory chronicle artwork (`pk` suite), detailed logs, and modal inspection.
+- **3D Holographic Spectrogram Topography**: Interactive 3D waterfall elevation visualizer rendering frequency intensity as interactive terrain meshes with live signal archetype presets.
 - **Breakthrough Listen & BLIMPY Integration**: Native parser for official `.fil` and `.h5` filterbank files.
 - **Dual-Path AI Anomaly Triage**: Combines computer vision feature representation with statistical density estimation.
 - **ON/OFF Spatial Cadence Check**: Automated rejection of terrestrial RFI by cross-referencing off-source observations.
@@ -135,6 +138,7 @@ During the Hack Day, the team implemented and verified:
 - Open-weight Gemma/Qwen scientific explanation service with strict guardrails.
 - FastAPI REST backend with 6 endpoints (`/health`, `/api/candidates`, `/api/candidates/{id}`, `/api/analyze`, `/api/statistics`, `/api/explain/{id}`).
 - Modern React + Tailwind observatory mission control frontend with interactive canvas waterfall viewer, colormaps, ON/OFF cadence check, and live pipeline stage runner.
+- Immersive 3D Landing Page featuring an interactive real-time 3D celestial canvas, 3D rotating wireframe telescope, multi-channel observatory video theatre with Web Audio space synthesizer, 3D holographic spectrogram topography viewer, and interactive 3D perspective tilt chronicle cards powered by the observatory art suite (`pk`).
 - Real empirical evaluation suite calculating accuracy, precision, recall, F1, and confusion matrix plots.
 - 15 unit tests covering preprocessing, candidate engine, anomaly detector, and API.
 
