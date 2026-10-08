@@ -1,0 +1,502 @@
+[
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-001",
+    "target_name": "BENCHMARK-NORMAL",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NORMAL_NOISE",
+    "snr_db": 0.0,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-001.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-002",
+    "target_name": "BENCHMARK-NARROW",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NARROWBAND",
+    "snr_db": 22.0,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-002.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-003",
+    "target_name": "BENCHMARK-DRIFTI",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "DRIFTING_NARROWBAND",
+    "snr_db": 14.8,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-003.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-004",
+    "target_name": "BENCHMARK-INTERM",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "INTERMITTENT",
+    "snr_db": 11.2,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-004.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-005",
+    "target_name": "BENCHMARK-BROADB",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "BROADBAND_BURST",
+    "snr_db": 11.5,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-005.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-006",
+    "target_name": "BENCHMARK-TERRES",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "TERRESTRIAL_RFI",
+    "snr_db": 16.5,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-006.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-007",
+    "target_name": "BENCHMARK-NORMAL",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NORMAL_NOISE",
+    "snr_db": 0.0,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-007.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-008",
+    "target_name": "BENCHMARK-NARROW",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NARROWBAND",
+    "snr_db": 17.1,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-008.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-009",
+    "target_name": "BENCHMARK-DRIFTI",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "DRIFTING_NARROWBAND",
+    "snr_db": 15.8,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-009.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-010",
+    "target_name": "BENCHMARK-INTERM",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "INTERMITTENT",
+    "snr_db": 11.6,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-010.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-011",
+    "target_name": "BENCHMARK-BROADB",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "BROADBAND_BURST",
+    "snr_db": 21.0,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-011.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-012",
+    "target_name": "BENCHMARK-TERRES",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "TERRESTRIAL_RFI",
+    "snr_db": 19.5,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-012.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-013",
+    "target_name": "BENCHMARK-NORMAL",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NORMAL_NOISE",
+    "snr_db": 0.0,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-013.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-014",
+    "target_name": "BENCHMARK-NARROW",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NARROWBAND",
+    "snr_db": 9.8,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-014.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-015",
+    "target_name": "BENCHMARK-DRIFTI",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "DRIFTING_NARROWBAND",
+    "snr_db": 17.5,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-015.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-016",
+    "target_name": "BENCHMARK-INTERM",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "INTERMITTENT",
+    "snr_db": 20.4,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-016.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-017",
+    "target_name": "BENCHMARK-BROADB",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "BROADBAND_BURST",
+    "snr_db": 17.1,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-017.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-018",
+    "target_name": "BENCHMARK-TERRES",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "TERRESTRIAL_RFI",
+    "snr_db": 12.7,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-018.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-019",
+    "target_name": "BENCHMARK-NORMAL",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NORMAL_NOISE",
+    "snr_db": 0.0,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-019.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-020",
+    "target_name": "BENCHMARK-NARROW",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NARROWBAND",
+    "snr_db": 15.0,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-020.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-021",
+    "target_name": "BENCHMARK-DRIFTI",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "DRIFTING_NARROWBAND",
+    "snr_db": 15.7,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-021.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-022",
+    "target_name": "BENCHMARK-INTERM",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "INTERMITTENT",
+    "snr_db": 19.9,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-022.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-023",
+    "target_name": "BENCHMARK-BROADB",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "BROADBAND_BURST",
+    "snr_db": 14.9,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-023.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-024",
+    "target_name": "BENCHMARK-TERRES",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "TERRESTRIAL_RFI",
+    "snr_db": 12.7,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-024.npy"
+  },
+  {
+    "source_file": "synthetic_pipeline.sim",
+    "observation_id": "CW-DEMO-025",
+    "target_name": "BENCHMARK-NORMAL",
+    "telescope": "GBT",
+    "freq_start_mhz": 1420.0,
+    "freq_end_mhz": 1420.71424,
+    "time_start_mjd": 59000.0,
+    "time_end_mjd": 59000.00337962963,
+    "time_steps": 16,
+    "freq_channels": 256,
+    "is_synthetic": true,
+    "injected_type": "NORMAL_NOISE",
+    "snr_db": 0.0,
+    "extra_metadata": {
+      "synthetic_notice": "Generated for testing/benchmarking. NOT an extraterrestrial discovery.",
+      "algorithm": "SyntheticSignalGenerator-v1"
+    },
+    "file": "CW-DEMO-025.npy"
+  }
+]

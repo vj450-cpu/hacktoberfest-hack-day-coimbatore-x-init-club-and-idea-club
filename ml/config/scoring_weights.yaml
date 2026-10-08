@@ -1,0 +1,31 @@
+# CosmicWatch Candidate Prioritization Engine Weights Configuration
+# All component weights are documented and normalized to sum to 1.0.
+
+engine:
+  version: "1.0.0"
+  description: "Multivariate astronomical candidate scoring engine for radio SETI and transient anomalies."
+
+weights:
+  # Primary ML and statistical signals
+  signal_confidence: 0.25      # Weight for deep vision classifier confidence (NORMAL vs CANDIDATE)
+  anomaly_score: 0.25          # Weight for Isolation Forest / spectral feature anomaly score
+  persistence: 0.15            # Weight for signal continuity across observational time integrations
+  narrowband_likelihood: 0.15  # Weight for spectral narrowness (anti-dispersion / anti-broadband)
+  on_off_consistency: 0.20     # Weight for presence in ON-source and absence in OFF-source targets
+
+penalties:
+  rfi_penalty_factor: 0.40     # Penalty multiplier applied when RFI characteristics are detected
+
+thresholds:
+  high_priority: 80            # Score >= 80 -> HIGH PRIORITY FOR REVIEW
+  interesting: 60              # Score >= 60 -> INTERESTING CANDIDATE
+  possible_rfi: 40             # High RFI likelihood -> POSSIBLE RFI
+  likely_normal: 0             # Fallthrough -> LIKELY NORMAL
+
+verification_labels:
+  high_priority: "HIGH PRIORITY FOR REVIEW"
+  interesting: "INTERESTING CANDIDATE"
+  possible_rfi: "POSSIBLE RFI"
+  likely_normal: "LIKELY NORMAL"
+
+disclaimer: "This system identifies unusual astronomical data patterns. It does not establish extraterrestrial origin."

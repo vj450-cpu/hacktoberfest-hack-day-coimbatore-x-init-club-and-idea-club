@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cosmicwatch-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - DEMO_MODE=true
+      - LLM_PROVIDER=local_heuristic
+    volumes:
+      - ./data:/app/data
+      - ./ml/models_saved:/app/ml/models_saved
+      - ./ml/config:/app/ml/config
+    restart: unless-stopped
+
+  # Optional local open-weight model serving using Ollama
+  ollama:
+    image: ollama/ollama:latest
+    container_name: cosmicwatch-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    profiles:
+      - with-llm
+
+volumes:
+  ollama_data:
