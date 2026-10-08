@@ -131,7 +131,7 @@ flowchart TD
 
 ### Technical Decisions & Heuristic Clarifications
 - **PyTorch Lightweight Spectrogram ResNet**: Custom 2-block residual architecture optimized for CPU inference ($<5\text{ ms}$ latency), eliminating the need for expensive GPU clusters during triage.
-- **Isolation Forest on Combined Latent + Domain Features**: Ensures anomalies are evaluated against nominal thermal receiver noise without assuming an arbitrary parametric distribution.
+- **Isolation Forest on Combined Latent + Domain Features**: Ensures anomalies are evaluated against nominal thermal receiver noise without assuming an arbitrary parametric distribution..
 - **Separation of LLM from Direct Vision**: Rather than allowing an LLM to hallucinate on raw pixels, the LLM consumes structured, deterministic measurements from the ML pipeline.
 - **40% RFI Penalty Factor**: The $0.40$ RFI penalty factor is a **configurable prototype triage heuristic** designed to down-rank multi-beam signals in software triage. It is not an unalterable astronomical constant and should be calibrated per observatory receiver band.
 - **YAML Weight Configuration**: Avoids arbitrary hardcoded scoring logic, allowing observatory operators to adapt scoring weights to different telescope bands in `ml/config/scoring_weights.yaml`.
