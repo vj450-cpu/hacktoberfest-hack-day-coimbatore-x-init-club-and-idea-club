@@ -59,3 +59,13 @@ def test_isolation_forest_fitting(generator):
     f_anom = AstronomicalFeatureExtractor.to_feature_vector(anom_sample)
     score = iso_detector.score_anomaly(f_anom)
     assert 0.0 <= score <= 1.0
+
+
+def test_astronomical_feature_extractor_returns_dict(generator):
+    """Test that extract_metrics returns a dictionary with the correct types."""
+    sample = generator.generate_sample(signal_type="NORMAL_NOISE")
+    metrics = AstronomicalFeatureExtractor.extract_metrics(sample)
+    assert isinstance(metrics, dict)
+    for key, value in metrics.items():
+        assert isinstance(key, str)
+        assert isinstance(value, float)
