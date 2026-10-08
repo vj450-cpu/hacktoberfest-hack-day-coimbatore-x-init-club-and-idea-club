@@ -4,7 +4,7 @@
 
 ## Team
 
-**Team Name:** CosmicWatch Triage
+**Team Name:** Code and Coffee
 
 | Member | Contribution |
 | ------ | ------------ |
